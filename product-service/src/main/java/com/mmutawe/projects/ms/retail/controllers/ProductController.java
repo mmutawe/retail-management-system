@@ -1,10 +1,9 @@
 package com.mmutawe.projects.ms.retail.controllers;
 
+import com.mmutawe.projects.ms.retail.dtos.ProductListResponseDto;
 import com.mmutawe.projects.ms.retail.dtos.ProductRequestDto;
 import com.mmutawe.projects.ms.retail.services.ProductService;
-import com.mmutawe.projects.ms.retail.utils.Constant;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,11 +20,17 @@ public class ProductController {
 
     @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity createNewProduct(@RequestBody ProductRequestDto productRequestDto){
+    public ResponseEntity<Object> createNewProduct(@RequestBody ProductRequestDto productRequestDto) {
         Integer createdProductId = productService
                 .createProduct(productRequestDto);
         return ResponseEntity
                 .created(URI.create(PRODUCT_URI + SLASH + createdProductId))
                 .build();
+    }
+
+    @GetMapping
+    public ResponseEntity<ProductListResponseDto> retrieveAllProducts() {
+        return ResponseEntity
+                .ok(productService.getAllProducts());
     }
 }
