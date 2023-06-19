@@ -1,3 +1,17 @@
+-- retaildb=# CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+-- CREATE EXTENSION
+-- retaildb=# SELECT uuid_generate_v1();
+--            uuid_generate_v1
+-- --------------------------------------
+--  32542bce-0ebd-11ee-8278-367dda2b2c40
+-- (1 row)
+--
+-- retaildb=# SELECT uuid_generate_v4();
+--            uuid_generate_v4
+-- --------------------------------------
+--  b8cb86ab-2148-45f2-b5d6-292159eb9cf0
+-- (1 row)
+
 -- retaildb=# CREATE TABLE orders (
 -- retaildb(# order_number uuid DEFAULT uuid_generate_v4 ());
 -- CREATE TABLE
