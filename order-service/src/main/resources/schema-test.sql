@@ -1,0 +1,33 @@
+-- retaildb=# CREATE TABLE orders (
+-- retaildb(# order_number uuid DEFAULT uuid_generate_v4 ());
+-- CREATE TABLE
+-- retaildb=# CREATE TABLE items (
+-- retaildb(# item_id SERIAL PRIMARY KEY,
+-- retaildb(# sku_code VARCHAR(255),
+-- retaildb(# quantity INT,
+-- retaildb(# price NUMERIC(5,2));
+-- CREATE TABLE
+-- retaildb=#
+-- retaildb=#
+-- retaildb=# CREATE TABLE order_item (
+-- retaildb(# item_id INTEGER REFERENCES items(item_id),
+-- retaildb(# order_number uuid REFERENCES orders(order_number),
+-- retaildb(# CONSTRAINT courses_students_pk PRIMARY KEY(course_id,student_id) );
+-- ERROR:  column "course_id" named in key does not exist
+-- LINE 4: CONSTRAINT courses_students_pk PRIMARY KEY(course_id,student...
+--         ^
+-- retaildb=#
+-- retaildb=#
+-- retaildb=# CREATE TABLE order_item (
+-- retaildb(# item_id INTEGER REFERENCES items(item_id),
+-- retaildb(# order_number uuid REFERENCES orders(order_number),
+-- retaildb(# CONSTRAINT orders_items_pk PRIMARY KEY(order_number,item_id) );
+-- ERROR:  there is no unique constraint matching given keys for referenced table "orders"
+-- retaildb=# ALTER TABLE orders ADD PRIMARY KEY (order_number);
+-- ALTER TABLE
+-- retaildb=#
+-- retaildb=# CREATE TABLE order_item (
+-- retaildb(# item_id INTEGER REFERENCES items(item_id),
+-- retaildb(# order_number uuid REFERENCES orders(order_number),
+-- retaildb(# CONSTRAINT orders_items_pk PRIMARY KEY(order_number,item_id) );
+-- CREATE TABLE
