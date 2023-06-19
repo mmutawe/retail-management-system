@@ -1,12 +1,12 @@
-package com.mmutawe.projects.ms.retail;
+package com.mmutawe.projects.ms.retail.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductServiceApplication {
+public class OrderServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProductServiceApplication.class, args);
+        SpringApplication.run(OrderServiceApplication.class, args);
     }
 }

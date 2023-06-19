@@ -1,10 +1,10 @@
-package com.mmutawe.projects.ms.retail.services;
+package com.mmutawe.projects.ms.retail.product.services;
 
-import com.mmutawe.projects.ms.retail.dtos.ProductListResponseDto;
-import com.mmutawe.projects.ms.retail.dtos.ProductRequestDto;
-import com.mmutawe.projects.ms.retail.dtos.ProductResponseDto;
-import com.mmutawe.projects.ms.retail.entities.Product;
-import com.mmutawe.projects.ms.retail.repositories.ProductRepository;
+import com.mmutawe.projects.ms.retail.product.dtos.ProductListResponseDto;
+import com.mmutawe.projects.ms.retail.product.dtos.ProductRequestDto;
+import com.mmutawe.projects.ms.retail.product.dtos.ProductResponseDto;
+import com.mmutawe.projects.ms.retail.product.entities.Product;
+import com.mmutawe.projects.ms.retail.product.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

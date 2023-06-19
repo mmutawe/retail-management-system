@@ -1,4 +1,4 @@
-package com.mmutawe.projects.ms.retail.entities;
+package com.mmutawe.projects.ms.retail.product.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

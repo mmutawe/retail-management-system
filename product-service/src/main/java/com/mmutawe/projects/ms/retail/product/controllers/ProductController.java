@@ -1,18 +1,17 @@
-package com.mmutawe.projects.ms.retail.controllers;
+package com.mmutawe.projects.ms.retail.product.controllers;
 
-import com.mmutawe.projects.ms.retail.dtos.ProductListResponseDto;
-import com.mmutawe.projects.ms.retail.dtos.ProductRequestDto;
-import com.mmutawe.projects.ms.retail.services.ProductService;
+import com.mmutawe.projects.ms.retail.product.dtos.ProductListResponseDto;
+import com.mmutawe.projects.ms.retail.product.dtos.ProductRequestDto;
+import com.mmutawe.projects.ms.retail.product.services.ProductService;
+import com.mmutawe.projects.ms.retail.product.utils.Constant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
-import static com.mmutawe.projects.ms.retail.utils.Constant.*;
-
 @RestController
-@RequestMapping(PRODUCT_URI)
+@RequestMapping(Constant.PRODUCT_URI)
 @RequiredArgsConstructor
 public class ProductController {
 
@@ -24,7 +23,7 @@ public class ProductController {
         Integer createdProductId = productService
                 .createProduct(productRequestDto);
         return ResponseEntity
-                .created(URI.create(PRODUCT_URI + SLASH + createdProductId))
+                .created(URI.create(Constant.PRODUCT_URI + Constant.SLASH + createdProductId))
                 .build();
     }
 

@@ -1,4 +1,4 @@
-package com.mmutawe.projects.ms.retail.dtos;
+package com.mmutawe.projects.ms.retail.product.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
