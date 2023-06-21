@@ -15,3 +15,8 @@ spring:
     password: pass
 server:
   port: 8082
+
+
+retail-ms:
+  inventory-api:
+    url: http://localhost:8083/api/v1/inventory
