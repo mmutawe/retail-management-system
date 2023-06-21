@@ -26,7 +26,7 @@ public class InventoryController {
                 .ok(inventoryAvailabilityResponseDto);
     }
 
-    @GetMapping(SKU_CODE_PATH)
+    @PostMapping(SKU_CODE_PATH)
     public ResponseEntity<InventoryListAvailabilityResponseDto> checkListAvailabilityInStick(@RequestBody InventoryListAvailabilityRequestDto inventoryListAvailabilityRequestDto){
         InventoryListAvailabilityResponseDto inventoryListAvailabilityResponseDto = inventoryService
                 .checkListAvailabilityBySkuCodes(inventoryListAvailabilityRequestDto);
