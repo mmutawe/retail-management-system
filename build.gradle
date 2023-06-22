@@ -8,8 +8,16 @@ java {
     sourceCompatibility = '17'
 }
 
+def retailBusinessProjects = [
+        project('product-service'),
+        project('order-service'),
+        project('inventory-service')
+]
+
 // allprojects = subprojects (children) + parent project
-subprojects {
+//allprojects {
+//subprojects {
+configure (retailBusinessProjects) {
     println "*** start gradle.build for \'${project.name}\' project."
 
     apply plugin:'java'
@@ -37,6 +45,9 @@ subprojects {
 
         // webclient
         implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+        // cloud
+//        implementation 'org.springframework.cloud:spring-cloud-dependencies'
 
         // lombok
         compileOnly 'org.projectlombok:lombok'
