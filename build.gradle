@@ -8,6 +8,10 @@ java {
     sourceCompatibility = '17'
 }
 
+repositories {
+    mavenCentral()
+}
+
 def retailBusinessProjects = [
         project('product-service'),
         project('order-service'),
