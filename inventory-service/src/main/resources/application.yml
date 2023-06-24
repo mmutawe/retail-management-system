@@ -13,10 +13,22 @@ spring:
     url: jdbc:postgresql://localhost:5111/retaildb
     username: mahmoudmutawe
     password: pass
+  application:
+    name: inventory-api
+
 server:
-  port: 8083
+  port: 0
+#  port: 8083
+#server.port=${inventory.server.port}
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+#  instance:
+#    non-secure-port-enabled: true
+#    secure-port-enabled: false
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#    non-secure-port: ${inventory.server.port}
+
+

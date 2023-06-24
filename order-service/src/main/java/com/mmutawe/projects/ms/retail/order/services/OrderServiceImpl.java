@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
     @Value("${retail-ms.inventory-api.url}")
     private String inventoryUrl;
@@ -37,11 +37,11 @@ public class OrderServiceImpl implements OrderService {
                 .skuCodes(skuCodes)
                 .build();
         // check item availability
-        InventoryListAvailabilityResponseDto inventoryListAvailabilityResponseDto = webClient.post()
+        InventoryListAvailabilityResponseDto inventoryListAvailabilityResponseDto = webClientBuilder.build()
+                .post()
                 .uri(inventoryUrl)
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .accept(MediaType.APPLICATION_JSON)
-                .body(inventoryListAvailabilityRequestDto, InventoryListAvailabilityRequestDto.class)
+                .bodyValue(inventoryListAvailabilityRequestDto)
                 .retrieve()
                 .bodyToMono(InventoryListAvailabilityResponseDto.class)
                 .block();

@@ -13,8 +13,12 @@ spring:
     url: jdbc:postgresql://localhost:5111/retaildb
     username: mahmoudmutawe
     password: pass
+  application:
+    name: order-api
+
 server:
-  port: 8082
+  port: 0
+#  port: 8082
 
 eureka:
   client:
@@ -23,4 +27,5 @@ eureka:
 
 retail-ms:
   inventory-api:
-    url: http://localhost:8083/api/v1/inventory
+    url: http://inventory-api/api/v1/inventory
+#    url: http://localhost:8083/api/v1/inventory
