@@ -1,0 +1,1 @@
+make sure to run keycloak on port 8888
