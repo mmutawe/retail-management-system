@@ -29,3 +29,40 @@ retail-ms:
   inventory-api:
     url: http://inventory-api/api/v1/inventory
 #    url: http://localhost:8083/api/v1/inventory
+
+# actuator
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# Resilience4j
+resilience4j:
+  circuitbreaker:
+    instances:
+      inventory:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        slidingWindowType: COUNT_BASED #TIME_BASED
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 5s
+        automatic-transition-from-open-to-half-open-enabled: true
+        permittedNumberOfCallsInHalfOpenState: 3
+  timelimiter:
+    instances:
+      inventory:
+        timeoutDuration: 3s
+        cancelRunningFuture: false
+  retry:
+    instances:
+      inventory:
+        max-attempts: 3
+        wait-duration: 5s
